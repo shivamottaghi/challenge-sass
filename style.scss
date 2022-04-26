@@ -1,5 +1,4 @@
-/*IMPORTS*/
-@import "partial";
+
 
 /*_______MIXIN_______*/
 @mixin boxshadow {
@@ -13,48 +12,15 @@
 @mixin bgcol0 {
   background-color: #000
 }
-/*_______EXTEND_______*/
-%messages {
-  @include bgcol0;
-  border: 1px solid #ccc;
-  padding: 10px;
-  color: #2748B3;
-  width: 100%
-}
+
 
 
 /*_____________VARIABLES_____________*/
 $red: 16px;
 $blue: 8px;
 
-/*__________MESSAGES__________*/
-.success {
-  @extend %messages;
-  background-color: green;
-}
-
-.warning {
-  @extend %messages;
-  background-color: orange;
-}
-
-.error {
-  @extend %messages;
-  background-color: red;
-}
-/*_____________Header Tags______________*/
-h1{
-  @include align;
-}
-h6{
-  @include align;
-  font-size: 2em;
-  padding: $red*2;
-  margin-bottom: 0px
-}
 
 
-/*____________css nesting_____________*/
 body {
   @include bgcol0;
   font: 100% "Space Mono", monospace;
@@ -66,13 +32,15 @@ body {
   background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
   background-attachment: fixed
 }
+/*____________css nesting_____________*/
+
 
 article {
   display: flex;
   flex-wrap: wrap
 }
 
-article {
+article{
   section {
     @include boxshadow;
     flex-grow: 1;
@@ -99,7 +67,7 @@ article {
     margin-bottom: 1.6em;
     max-width: 100%;
     overflow: auto;
-    padding: $red $red+$blue;
+    padding: 1em 1.5em;
     display: block;
     word-wrap: break-word
   }
@@ -112,3 +80,43 @@ article {
     width: 40%
   }
 }
+/*IMPORTS*/
+@import "partial";
+
+/*_____________Header Tags______________*/
+h1{
+  @include align;
+}
+h6{
+  @include align;
+  font-size: 2em;
+  padding: $red*2;
+  margin-bottom: 0px
+}
+
+/*__________MESSAGES__________*/
+/*_______EXTEND_______*/
+%messages {
+  @include bgcol0;
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #2748B3;
+  width: 100%
+}
+.success {
+  @extend %messages;
+  background-color: green;
+}
+
+.warning {
+  @extend %messages;
+  background-color: orange;
+}
+
+.error {
+  @extend %messages;
+  background-color: red;
+}
+
+
+
